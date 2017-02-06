@@ -5,28 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
-
 import no.hib.dat102.adt.CDarkivADT;
 
 public class Fil {
 	static final String SKILLE = "#";
-	/*
-	public static int antallCDerFraFil(String filnavn) {
-		try {
-			FileReader inn = new FileReader(filnavn);
-			BufferedReader bufferedReader = new BufferedReader(inn);
-			int antallCDer = Integer.parseInt(bufferedReader.readLine());
-			bufferedReader.close();
-			return antallCDer;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return 0;
-		} catch (IOException e){
-			e.printStackTrace();
-			return 0;
-		} 
-	}*/
 	
 	public static void lesFraFil(CDarkivADT cdarkiv, String filnavn) {
 		
@@ -42,7 +24,7 @@ public class Fil {
 			bufferedReader.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} catch (IOException e){
+		} catch (IOException e) {
 			e.printStackTrace();
 		} 
 	}
