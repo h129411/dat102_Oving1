@@ -64,30 +64,13 @@ public class Meny {
 		case "3":
 			skjerm.outln("Skriv nummeret til CD som skal slettes");
 			int cdNummer = Integer.parseInt(tastatur.inWord());
-			if (cda.slettCd(cdNummer)) {
-				skjerm.outln("Slettet cd nr. \"" + cdNummer + "\".");
-			} else {
-				skjerm.outln("Ingen cd med nummer \"" + cdNummer + "\" funnet.");
-			}
+			tekstgr.slettCD(cda, cdNummer);
 			break;
 		case "4":
 			tekstgr.skrivUtStatistikk(cda);
 			break;
 		case "5":
 			avslutt();
-		case "6":
-			
-			break;
-		case "7":
-			
-			break;
-		case "8":
-			
-			break;
-		case "9":
-			
-			break;
-		
 		default:
 			start();
 			break;

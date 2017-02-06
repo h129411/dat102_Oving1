@@ -21,12 +21,16 @@ public class Tekstgrensesnitt {
 		String label = tastatur.inLine();
 		
 		CD cd = new CD(nummer, artist, album, aar, sjanger, label);
-		return cd;
-		
-		
+		return cd;	
 	}
 	
-
+	public void slettCD(CDarkivADT cda, int cdNummer) {
+		if (cda.slettCd(cdNummer)) {
+			skjerm.outln("Slettet cd nr. \"" + cdNummer + "\".");
+		} else {
+			skjerm.outln("Ingen cd med nummer \"" + cdNummer + "\" funnet.");
+		}
+	}
 	
 	public void visCD(CD cd) {
 		
@@ -47,8 +51,6 @@ public class Tekstgrensesnitt {
 		skjerm.out("Plateselskab:", marg);skjerm.outln(label);
 		skjerm.outln("----------------------------");
 		skjerm.outln("                            ");
-		
-		
 	}
 	
 	public void skrivUtCdDelstrengITittel(CDarkivADT cda, String delstreng) {
@@ -73,8 +75,6 @@ public class Tekstgrensesnitt {
 		skjerm.outln("Antall CDer i sjanger:");
 		for (Sjanger sj : Sjanger.values()) {
 			skjerm.outln("    " + sj.toString() + ": " + cda.hentAntall(sj));
-		}
-		
-		
+		}		
 	}
 }
