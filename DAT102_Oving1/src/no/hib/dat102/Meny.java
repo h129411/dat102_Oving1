@@ -27,11 +27,6 @@ public class Meny {
 		start();
 	}
 	
-	private void avslutt() {
-		Fil.skrivTilFil(cda, "fil.txt");
-		System.exit(0);
-	}
-	
 	private void takeInput() {
 		
 		switch (tastatur.next()) {
@@ -58,8 +53,6 @@ public class Meny {
 			default:
 				break;
 			}
-			
-			
 			break;
 		case "3":
 			skjerm.outln("Skriv nummeret til CD som skal slettes");
@@ -75,6 +68,11 @@ public class Meny {
 			start();
 			break;
 		}
+	}
+	
+	private void avslutt() {
+		Fil.skrivTilFil(cda, "fil.txt");
+		System.exit(0);
 	}
 }
 
