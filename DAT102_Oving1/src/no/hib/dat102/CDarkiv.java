@@ -1,7 +1,6 @@
 package no.hib.dat102;
 import no.hib.dat102.adt.*;
 
-
 public class CDarkiv implements CDarkivADT {
 
 	private CD[] cdTabell;
@@ -16,7 +15,7 @@ public class CDarkiv implements CDarkivADT {
 		cdTabell = new CD[10];
 		antall = 0;
 	}
-	
+
 	@Override
 	public CD[] hentCdTabell() {
 		return cdTabell;
@@ -38,7 +37,7 @@ public class CDarkiv implements CDarkivADT {
 		}
 		cdTabell = hjelpetabell;
 	}
-	
+
 	@Override
 	public boolean slettCd(int cdNr) {
 		// Peiser gjennom hele tabellen i tilfelle det er 2 av samme cd.
@@ -53,7 +52,7 @@ public class CDarkiv implements CDarkivADT {
 		}
 		return funnet;
 	}
-	
+
 	private CD[] trimTab(CD[] cdtab, int n) {
 		CD[] cdtab2 = new CD[n];
 		int i = 0;
@@ -105,5 +104,4 @@ public class CDarkiv implements CDarkivADT {
 		}
 		return antallMatch;
 	}
-	
 }

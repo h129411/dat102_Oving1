@@ -1,13 +1,5 @@
 package no.hib.dat102;
 
-/**
- * <h1>CD info</h1>
- * Klasse som har informasjon om en cd
- * @author Gruppen
- * @since 01.02.17
- * 
- */
-
 public class CD {
 	private int nummer;
 	private String artist;

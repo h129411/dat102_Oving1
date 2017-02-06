@@ -1,5 +1,4 @@
 package no.hib.dat102;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -12,7 +11,7 @@ import no.hib.dat102.adt.CDarkivADT;
 
 public class Fil {
 	static final String SKILLE = "#";
-	
+	/*
 	public static int antallCDerFraFil(String filnavn) {
 		try {
 			FileReader inn = new FileReader(filnavn);
@@ -27,7 +26,7 @@ public class Fil {
 			e.printStackTrace();
 			return 0;
 		} 
-	}
+	}*/
 	
 	public static void lesFraFil(CDarkivADT cdarkiv, String filnavn) {
 		
@@ -46,7 +45,6 @@ public class Fil {
 		} catch (IOException e){
 			e.printStackTrace();
 		} 
-	
 	}
 	
 	public static void skrivTilFil(CDarkivADT cdarkiv, String filnavn) {
@@ -62,7 +60,7 @@ public class Fil {
 			}
 			bufferedWriter.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	
@@ -87,9 +85,5 @@ public class Fil {
 				cd.getSjanger() + "#" +
 				cd.getLabel() + "\n";
 		return cdInfoString;
-	}
-	
-
-
-	
+	}	
 }
