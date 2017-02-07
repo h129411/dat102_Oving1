@@ -33,7 +33,6 @@ public class Tekstgrensesnitt {
 	}
 	
 	public void visCD(CD cd) {
-		
 		int marg = 15;
 		int nummer = cd.getNummer();
 		String artist = cd.getArtist();
