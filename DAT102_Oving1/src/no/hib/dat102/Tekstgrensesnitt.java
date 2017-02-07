@@ -16,7 +16,7 @@ public class Tekstgrensesnitt {
 		skjerm.outln("Skriv utgivelsesår:");
 		int aar = Integer.parseInt(tastatur.inWord());
 		skjerm.outln("Skriv sjanger:");
-		Sjanger sjanger = Sjanger.valueOf(tastatur.inWord());
+		Sjanger sjanger = Sjanger.valueOf(tastatur.inWord().toUpperCase());
 		skjerm.outln("Skriv plateselskap:");
 		String label = tastatur.inLine();
 		

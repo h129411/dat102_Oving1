@@ -14,9 +14,9 @@ public class CDarkiv2 implements CDarkivADT {
 	@Override
 	public CD[] hentCdTabell() {
 		LinearNode<CD> fremst = start;
-		CD[] cdTabell = new CD[antall + 5];
+		CD[] cdTabell = new CD[antall];
 		for (int i=0;i<antall;i++) {
-			cdTabell[i] = start.getElement();
+			cdTabell[i] = start.getNeste().getElement();
 			start = start.getNeste();
 		}
 		start = fremst;
@@ -53,7 +53,7 @@ public class CDarkiv2 implements CDarkivADT {
 		int antallTreff = 0;
 		for (int i=0;i<antall;i++) {
 			CD cden = start.getNeste().getElement();
-			if (cden.getAlbum().contains(delstreng)) {
+			if (cden.getAlbum().toUpperCase().contains(delstreng.toUpperCase())) {
 				cdTabell[antallTreff] = cden;
 				antallTreff++;
 			}
@@ -70,7 +70,7 @@ public class CDarkiv2 implements CDarkivADT {
 		int antallTreff = 0;
 		for (int i=0;i<antall;i++) {
 			CD cden = start.getNeste().getElement();
-			if (cden.getArtist().contains(delstreng)) {
+			if (cden.getArtist().toUpperCase().contains(delstreng.toUpperCase())) {
 				cdTabell[antallTreff] = cden;
 				antallTreff++;
 			}
