@@ -60,7 +60,7 @@ public class Fil {
 	}
 	
 	static private String skrivCD(CD cd) {
-		String cdInfoString = 	cd.getNummer() + "#" +
+		String cdInfoString = cd.getNummer() + "#" +
 				cd.getArtist() + "#" +
 				cd.getAlbum() + "#" +
 				cd.getAar() + "#" +

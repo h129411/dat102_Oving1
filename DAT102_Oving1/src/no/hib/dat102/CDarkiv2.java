@@ -11,6 +11,11 @@ public class CDarkiv2 implements CDarkivADT {
 		antall = 0;
 	}
 	
+	public CDarkiv2() {
+		start = new LinearNode<CD>();
+		antall = 0;
+	}
+	
 	@Override
 	public CD[] hentCdTabell() {
 		LinearNode<CD> fremst = start;
