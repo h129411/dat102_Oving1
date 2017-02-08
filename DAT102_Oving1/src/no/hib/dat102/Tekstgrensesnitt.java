@@ -24,6 +24,10 @@ public class Tekstgrensesnitt {
 		return cd;	
 	}
 	
+	public void lastArkiv(CDarkivADT cda) {
+		
+	}
+	
 	public void slettCD(CDarkivADT cda, int cdNummer) {
 		if (cda.slettCd(cdNummer)) {
 			skjerm.outln("Slettet cd nr. \"" + cdNummer + "\".");

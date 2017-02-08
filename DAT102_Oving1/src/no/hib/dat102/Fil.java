@@ -1,10 +1,14 @@
 package no.hib.dat102;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.util.ArrayList;
+
 import no.hib.dat102.adt.CDarkivADT;
 
 public class Fil {
@@ -23,7 +27,8 @@ public class Fil {
 			}
 			bufferedReader.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Fil fins ikke");
+			System.exit(1);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
@@ -41,8 +46,36 @@ public class Fil {
 				bufferedWriter.write(cdString);
 			}
 			bufferedWriter.close();
-		} catch (Exception e) {
+		} catch (IOException e) {
+			
+		}
+	}
+	
+	public static boolean lagNyttArkiv(String filnavn) {
+		File nyFil = new File(filnavn);
+		boolean success = false;
+		try {
+			if (nyFil.createNewFile()) {
+				System.out.println("Opprettet nytt arkiv, \"" + filnavn + "\"");
+				success = true;
+			} else {
+				System.out.println("Kunne ikke opprette arkiv");
+			}
+		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		return success;
+	}
+	
+	static public void printFileList() {
+		File mappe = new File(".");
+		File[] filer = mappe.listFiles();
+		for (File f : filer) {
+			String s = f.toString();
+			String postfix = s.substring(s.length() - 3, s.length());
+			if (postfix.equals("txt")) {
+				System.out.println("    " + s.substring(2, s.length() - 4));
+			}
 		}
 	}
 	
