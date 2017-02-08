@@ -12,7 +12,7 @@ public class CDarkiv implements CDarkivADT {
 	}
 	
 	public CDarkiv() {
-		cdTabell = new CD[10];
+		cdTabell = new CD[1];
 		antall = 0;
 	}
 

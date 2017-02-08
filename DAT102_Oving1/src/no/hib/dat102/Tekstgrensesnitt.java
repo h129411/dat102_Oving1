@@ -70,7 +70,6 @@ public class Tekstgrensesnitt {
 	
 	public void skrivUtStatistikk(CDarkivADT cda) {
 		skjerm.outln("Totalt antall CDer: " + cda.hentAntall());
-		skjerm.outln("Størrelse på tabell (Feilsøk): " + cda.hentCdTabell().length);
 		skjerm.outln("Antall CDer i sjanger:");
 		for (Sjanger sj : Sjanger.values()) {
 			skjerm.outln("    " + sj.toString() + ": " + cda.hentAntall(sj));

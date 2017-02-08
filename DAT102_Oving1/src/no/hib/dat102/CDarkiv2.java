@@ -18,19 +18,17 @@ public class CDarkiv2 implements CDarkivADT {
 	
 	@Override
 	public CD[] hentCdTabell() {
-		LinearNode<CD> fremst = start;
+		LinearNode<CD> cur = start.getNeste();
 		CD[] cdTabell = new CD[antall];
 		for (int i=0;i<antall;i++) {
-			cdTabell[i] = start.getNeste().getElement();
-			start = start.getNeste();
+			cdTabell[i] = cur.getElement();
+			cur = cur.getNeste();
 		}
-		start = fremst;
 		return cdTabell;
 	}
 
 	@Override
 	public void leggTilCd(CD nyCd) {
-		// TODO Auto-generated method stub
 		LinearNode<CD> nyNode = new LinearNode<CD>(nyCd);
 		nyNode.setNeste(start.getNeste());
 		start.setNeste(nyNode);
@@ -39,49 +37,50 @@ public class CDarkiv2 implements CDarkivADT {
 
 	@Override
 	public boolean slettCd(int cdNr) {
+		LinearNode<CD> prev = start;
+		LinearNode<CD> cur = start.getNeste();
 		boolean funnet = false;
-		for (int i=1;i<=antall;i++) {
-			CD nesteCD = start.getNeste().getElement();
-			if (nesteCD.getNummer() == cdNr) {
+		for (int i=0;i<antall;i++) {
+			if (cur.getElement().getNummer() == cdNr) {
+				prev.setNeste(cur.getNeste());
 				funnet = true;
 				antall--;
-				start.setNeste(start.getNeste().getNeste());
 			}
+			prev = cur;
+			cur = cur.getNeste();
 		}
 		return funnet;
 	}
 
 	@Override
 	public CD[] sokTittel(String delstreng) {
-		LinearNode<CD> fremst = start;
+		LinearNode<CD> cur = start;
 		CD[] cdTabell = new CD[antall];
 		int antallTreff = 0;
 		for (int i=0;i<antall;i++) {
-			CD cden = start.getNeste().getElement();
+			CD cden = cur.getNeste().getElement();
 			if (cden.getAlbum().toUpperCase().contains(delstreng.toUpperCase())) {
 				cdTabell[antallTreff] = cden;
 				antallTreff++;
 			}
-			start = start.getNeste();
+			cur = cur.getNeste();
 		}
-		start = fremst;
 		return trimTab(cdTabell, antallTreff);
 	}
 
 	@Override
 	public CD[] sokArtist(String delstreng) {
-		LinearNode<CD> fremst = start;
+		LinearNode<CD> cur = start;
 		CD[] cdTabell = new CD[antall];
 		int antallTreff = 0;
 		for (int i=0;i<antall;i++) {
-			CD cden = start.getNeste().getElement();
+			CD cden = cur.getNeste().getElement();
 			if (cden.getArtist().toUpperCase().contains(delstreng.toUpperCase())) {
 				cdTabell[antallTreff] = cden;
 				antallTreff++;
 			}
-			start = start.getNeste();
+			cur = cur.getNeste();
 		}
-		start = fremst;
 		return trimTab(cdTabell, antallTreff);
 	}
 
@@ -92,16 +91,15 @@ public class CDarkiv2 implements CDarkivADT {
 
 	@Override
 	public int hentAntall(Sjanger sjanger) {
-		LinearNode<CD> fremst = start;
+		LinearNode<CD> cur = start;
 		int antallTreff = 0;
 		for (int i=0;i<antall;i++) {
-			CD cden = start.getNeste().getElement();
+			CD cden = cur.getNeste().getElement();
 			if (cden.getSjanger() == sjanger) {
 				antallTreff++;
 			}
-			start = start.getNeste();
+			cur = cur.getNeste();
 		}
-		start = fremst;
 		return antallTreff;
 	}
 	
